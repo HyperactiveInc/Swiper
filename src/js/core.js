@@ -112,6 +112,8 @@ var defaults = {
     paginationFractionRender: null,
     paginationCustomRender: null,
     paginationType: 'bullets', // 'bullets' or 'progress' or 'fraction' or 'custom'
+    fitSlideGroupWithBlank: false,
+    blankClass: 'swiper-invisible-blank-slide',
     // Resistance
     resistance: true,
     resistanceRatio: 0.85,
@@ -412,7 +414,7 @@ if (s.params.pagination) {
     }
 
     if (s.params.paginationType === 'bullets' && s.params.paginationClickable) {
-        s.paginationContainer.addClass(s.params.paginationModifierClass + 'clickable');
+        s.paginationContainer.addClass(s.params.paginationClickableClass);
     }
     else {
         s.params.paginationClickable = false;
@@ -1315,7 +1317,7 @@ s.touchEvents = {
 
 // WP8 Touch Events Fix
 if (window.navigator.pointerEnabled || window.navigator.msPointerEnabled) {
-    (s.params.touchEventsTarget === 'container' ? s.container : s.wrapper).addClass('swiper-wp8-' + s.params.direction);
+    (s.params.touchEventsTarget === 'container' ? s.container : s.wrapper).addClass(s.params.containerModifierClass + 'wp8-' + s.params.direction);
 }
 
 // Attach/detach events
@@ -2006,6 +2008,10 @@ s.slideTo = function (slideIndex, speed, runCallbacks, internal) {
     s.snapIndex = Math.floor(slideIndex / s.params.slidesPerGroup);
     if (s.snapIndex >= s.snapGrid.length) s.snapIndex = s.snapGrid.length - 1;
 
+    if ((s.activeIndex || s.initialSlide || 0) === (s.previousIndex || 0) && runCallbacks) {
+        s.emit('beforeSlideChangeStart', s);
+    }
+
     var translate = - s.snapGrid[s.snapIndex];
     // Stop autoplay
     if (s.params.autoplay && s.autoplaying) {
@@ -2340,6 +2346,15 @@ s.createLoop = function () {
     s.wrapper.children('.' + s.params.slideClass + '.' + s.params.slideDuplicateClass).remove();
 
     var slides = s.wrapper.children('.' + s.params.slideClass);
+
+    if (s.params.fitSlideGroupWithBlank) {
+        var blankSlidesNum = s.params.slidesPerGroup - slides.length % s.params.slidesPerGroup;
+        for (var i = 0; i < blankSlidesNum; i++) {
+            var blankNode = $(document.createElement('div')).addClass(s.params.slideClass + ' ' + s.params.blankClass);
+            s.wrapper.append(blankNode);
+        }
+        slides = s.wrapper.children();
+    }
 
     if(s.params.slidesPerView === 'auto' && !s.params.loopedSlides) s.params.loopedSlides = slides.length;
 
