@@ -1,5 +1,26 @@
 # Change Log
 
+<<<<<<< HEAD
+=======
+## [Swiper 5.3.6](https://github.com/nolimits4web/swiper/compare/v5.3.1...v5.3.6) - Released on February 29, 2020
+  * Core
+    * Fixed wrong auto height calculation with `centeredSlides` enabled
+  * Lazy
+    * Now it will update auto height (if enabled) on lazy image loaded (#3466)
+  * Zoom
+    * Fixed issue when previously active slide could be zoomed with `zoom.in()` API (#3451)
+    * Fixed issue when zoom didn't work on `<picture>` element (#3456)
+    * Added support for custom zoom-target element by adding `swiper-zoom-target` class to such elements
+  * Coverflow Effect
+    * `stretch` parameter now can be set in `%` (#3468)
+  * Minor fixes
+
+## [Swiper 5.3.1](https://github.com/nolimits4web/swiper/compare/v5.3.0...v5.3.1) - Released on February 8, 2020
+  * Core
+    * Fixed issue when slider could stuck after last slide (#3414)
+    * Added `label` to list of form events to keep clicks on it (#3407)
+
+>>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
 ## [Swiper 5.3.0](https://github.com/nolimits4web/swiper/compare/v5.2.1...v5.3.0) - Released on January 11, 2020
   * Core
     * New `slidesPerGroupSkip` behavior (#3361)

@@ -23,7 +23,11 @@ export default function (translate = (this && this.translate) || 0) {
     const slideProgress = (
       (offsetCenter + (params.centeredSlides ? swiper.minTranslate() : 0)) - slide.swiperSlideOffset
     ) / (slide.swiperSlideSize + params.spaceBetween);
+<<<<<<< HEAD
     if (params.watchSlidesVisibility) {
+=======
+    if (params.watchSlidesVisibility || (params.centeredSlides && params.autoHeight)) {
+>>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
       const slideBefore = -(offsetCenter - slide.swiperSlideOffset);
       const slideAfter = slideBefore + swiper.slidesSizesGrid[i];
       const isVisible = (slideBefore >= 0 && slideBefore < swiper.size - 1)

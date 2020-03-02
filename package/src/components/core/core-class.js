@@ -204,7 +204,11 @@ class Swiper extends SwiperClass {
         startTranslate: undefined,
         allowThresholdMove: undefined,
         // Form elements to match
+<<<<<<< HEAD
         formElements: 'input, select, option, textarea, button, video',
+=======
+        formElements: 'input, select, option, textarea, button, video, label',
+>>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
         // Last click time
         lastClickTime: Utils.now(),
         clickTimeout: undefined,
