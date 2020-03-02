@@ -27,11 +27,7 @@ export default function (translate) {
     isEnd,
   });
 
-<<<<<<< HEAD
-  if (params.watchSlidesProgress || params.watchSlidesVisibility) swiper.updateSlidesProgress(translate);
-=======
   if (params.watchSlidesProgress || params.watchSlidesVisibility || (params.centeredSlides && params.autoHeight)) swiper.updateSlidesProgress(translate);
->>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
 
   if (isBeginning && !wasBeginning) {
     swiper.emit('reachBeginning toEdge');

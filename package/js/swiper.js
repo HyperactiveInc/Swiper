@@ -1,9 +1,5 @@
 /**
-<<<<<<< HEAD
- * Swiper 5.3.0
-=======
  * Swiper 5.3.6
->>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * http://swiperjs.com
  *
@@ -11,11 +7,7 @@
  *
  * Released under the MIT License
  *
-<<<<<<< HEAD
- * Released on: January 11, 2020
-=======
  * Released on: February 29, 2020
->>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
  */
 
 (function (global, factory) {
@@ -1557,12 +1549,6 @@
     }
     // Find slides currently in view
     if (swiper.params.slidesPerView !== 'auto' && swiper.params.slidesPerView > 1) {
-<<<<<<< HEAD
-      for (i = 0; i < Math.ceil(swiper.params.slidesPerView); i += 1) {
-        var index = swiper.activeIndex + i;
-        if (index > swiper.slides.length) { break; }
-        activeSlides.push(swiper.slides.eq(index)[0]);
-=======
       if (swiper.params.centeredSlides) { activeSlides.push.apply(activeSlides, swiper.visibleSlides); }
       else {
         for (i = 0; i < Math.ceil(swiper.params.slidesPerView); i += 1) {
@@ -1570,7 +1556,6 @@
           if (index > swiper.slides.length) { break; }
           activeSlides.push(swiper.slides.eq(index)[0]);
         }
->>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
       }
     } else {
       activeSlides.push(swiper.slides.eq(swiper.activeIndex)[0]);
@@ -1622,11 +1607,7 @@
       var slideProgress = (
         (offsetCenter + (params.centeredSlides ? swiper.minTranslate() : 0)) - slide.swiperSlideOffset
       ) / (slide.swiperSlideSize + params.spaceBetween);
-<<<<<<< HEAD
-      if (params.watchSlidesVisibility) {
-=======
       if (params.watchSlidesVisibility || (params.centeredSlides && params.autoHeight)) {
->>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
         var slideBefore = -(offsetCenter - slide.swiperSlideOffset);
         var slideAfter = slideBefore + swiper.slidesSizesGrid[i];
         var isVisible = (slideBefore >= 0 && slideBefore < swiper.size - 1)
@@ -1672,11 +1653,7 @@
       isEnd: isEnd,
     });
 
-<<<<<<< HEAD
-    if (params.watchSlidesProgress || params.watchSlidesVisibility) { swiper.updateSlidesProgress(translate); }
-=======
     if (params.watchSlidesProgress || params.watchSlidesVisibility || (params.centeredSlides && params.autoHeight)) { swiper.updateSlidesProgress(translate); }
->>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
 
     if (isBeginning && !wasBeginning) {
       swiper.emit('reachBeginning toEdge');
@@ -2132,11 +2109,7 @@
 
     var skip = Math.min(swiper.params.slidesPerGroupSkip, slideIndex);
     var snapIndex = skip + Math.floor((slideIndex - skip) / swiper.params.slidesPerGroup);
-<<<<<<< HEAD
-    if (snapIndex >= slidesGrid.length) { snapIndex = slidesGrid.length - 1; }
-=======
     if (snapIndex >= snapGrid.length) { snapIndex = snapGrid.length - 1; }
->>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
 
     if ((activeIndex || params.initialSlide || 0) === (previousIndex || 0) && runCallbacks) {
       swiper.emit('beforeSlideChangeStart');
@@ -3659,11 +3632,7 @@
     var breakpoint = false;
 
     var points = Object.keys(breakpoints).map(function (point) {
-<<<<<<< HEAD
-      if (typeof point === 'string' && point.startsWith('@')) {
-=======
       if (typeof point === 'string' && point.indexOf('@') === 0) {
->>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
         var minRatio = parseFloat(point.substr(1));
         var value = win.innerHeight * minRatio;
         return { value: value, point: point };
@@ -4146,11 +4115,7 @@
           startTranslate: undefined,
           allowThresholdMove: undefined,
           // Form elements to match
-<<<<<<< HEAD
-          formElements: 'input, select, option, textarea, button, video',
-=======
           formElements: 'input, select, option, textarea, button, video, label',
->>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
           // Last click time
           lastClickTime: Utils.now(),
           clickTimeout: undefined,
@@ -6425,15 +6390,9 @@
         gesture.scaleStart = Zoom.getDistanceBetweenTouches(e);
       }
       if (!gesture.$slideEl || !gesture.$slideEl.length) {
-<<<<<<< HEAD
-        gesture.$slideEl = $(e.target).closest('.swiper-slide');
-        if (gesture.$slideEl.length === 0) { gesture.$slideEl = swiper.slides.eq(swiper.activeIndex); }
-        gesture.$imageEl = gesture.$slideEl.find('img, svg, canvas');
-=======
         gesture.$slideEl = $(e.target).closest(("." + (swiper.params.slideClass)));
         if (gesture.$slideEl.length === 0) { gesture.$slideEl = swiper.slides.eq(swiper.activeIndex); }
         gesture.$imageEl = gesture.$slideEl.find('img, svg, canvas, picture, .swiper-zoom-target');
->>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
         gesture.$imageWrapEl = gesture.$imageEl.parent(("." + (params.containerClass)));
         gesture.maxRatio = gesture.$imageWrapEl.attr('data-swiper-zoom') || params.maxRatio;
         if (gesture.$imageWrapEl.length === 0) {
@@ -6676,13 +6635,8 @@
       var image = zoom.image;
 
       if (!gesture.$slideEl) {
-<<<<<<< HEAD
-        gesture.$slideEl = swiper.clickedSlide ? $(swiper.clickedSlide) : swiper.slides.eq(swiper.activeIndex);
-        gesture.$imageEl = gesture.$slideEl.find('img, svg, canvas');
-=======
         gesture.$slideEl = swiper.slides.eq(swiper.activeIndex);
         gesture.$imageEl = gesture.$slideEl.find('img, svg, canvas, picture, .swiper-zoom-target');
->>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
         gesture.$imageWrapEl = gesture.$imageEl.parent(("." + (params.containerClass)));
       }
       if (!gesture.$imageEl || gesture.$imageEl.length === 0) { return; }
@@ -6767,13 +6721,8 @@
       var gesture = zoom.gesture;
 
       if (!gesture.$slideEl) {
-<<<<<<< HEAD
-        gesture.$slideEl = swiper.clickedSlide ? $(swiper.clickedSlide) : swiper.slides.eq(swiper.activeIndex);
-        gesture.$imageEl = gesture.$slideEl.find('img, svg, canvas');
-=======
         gesture.$slideEl = swiper.slides.eq(swiper.activeIndex);
         gesture.$imageEl = gesture.$slideEl.find('img, svg, canvas, picture, .swiper-zoom-target');
->>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
         gesture.$imageWrapEl = gesture.$imageEl.parent(("." + (params.containerClass)));
       }
       if (!gesture.$imageEl || gesture.$imageEl.length === 0) { return; }
@@ -6795,19 +6744,6 @@
       var passiveListener = swiper.touchEvents.start === 'touchstart' && Support.passiveListener && swiper.params.passiveListeners ? { passive: true, capture: false } : false;
       var activeListenerWithCapture = Support.passiveListener ? { passive: false, capture: true } : true;
 
-<<<<<<< HEAD
-      // Scale image
-      if (Support.gestures) {
-        swiper.$wrapperEl.on('gesturestart', '.swiper-slide', zoom.onGestureStart, passiveListener);
-        swiper.$wrapperEl.on('gesturechange', '.swiper-slide', zoom.onGestureChange, passiveListener);
-        swiper.$wrapperEl.on('gestureend', '.swiper-slide', zoom.onGestureEnd, passiveListener);
-      } else if (swiper.touchEvents.start === 'touchstart') {
-        swiper.$wrapperEl.on(swiper.touchEvents.start, '.swiper-slide', zoom.onGestureStart, passiveListener);
-        swiper.$wrapperEl.on(swiper.touchEvents.move, '.swiper-slide', zoom.onGestureChange, activeListenerWithCapture);
-        swiper.$wrapperEl.on(swiper.touchEvents.end, '.swiper-slide', zoom.onGestureEnd, passiveListener);
-        if (swiper.touchEvents.cancel) {
-          swiper.$wrapperEl.on(swiper.touchEvents.cancel, '.swiper-slide', zoom.onGestureEnd, passiveListener);
-=======
       var slideSelector = "." + (swiper.params.slideClass);
 
       // Scale image
@@ -6821,7 +6757,6 @@
         swiper.$wrapperEl.on(swiper.touchEvents.end, slideSelector, zoom.onGestureEnd, passiveListener);
         if (swiper.touchEvents.cancel) {
           swiper.$wrapperEl.on(swiper.touchEvents.cancel, slideSelector, zoom.onGestureEnd, passiveListener);
->>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
         }
       }
 
@@ -6838,19 +6773,6 @@
       var passiveListener = swiper.touchEvents.start === 'touchstart' && Support.passiveListener && swiper.params.passiveListeners ? { passive: true, capture: false } : false;
       var activeListenerWithCapture = Support.passiveListener ? { passive: false, capture: true } : true;
 
-<<<<<<< HEAD
-      // Scale image
-      if (Support.gestures) {
-        swiper.$wrapperEl.off('gesturestart', '.swiper-slide', zoom.onGestureStart, passiveListener);
-        swiper.$wrapperEl.off('gesturechange', '.swiper-slide', zoom.onGestureChange, passiveListener);
-        swiper.$wrapperEl.off('gestureend', '.swiper-slide', zoom.onGestureEnd, passiveListener);
-      } else if (swiper.touchEvents.start === 'touchstart') {
-        swiper.$wrapperEl.off(swiper.touchEvents.start, '.swiper-slide', zoom.onGestureStart, passiveListener);
-        swiper.$wrapperEl.off(swiper.touchEvents.move, '.swiper-slide', zoom.onGestureChange, activeListenerWithCapture);
-        swiper.$wrapperEl.off(swiper.touchEvents.end, '.swiper-slide', zoom.onGestureEnd, passiveListener);
-        if (swiper.touchEvents.cancel) {
-          swiper.$wrapperEl.off(swiper.touchEvents.cancel, '.swiper-slide', zoom.onGestureEnd, passiveListener);
-=======
       var slideSelector = "." + (swiper.params.slideClass);
 
       // Scale image
@@ -6864,7 +6786,6 @@
         swiper.$wrapperEl.off(swiper.touchEvents.end, slideSelector, zoom.onGestureEnd, passiveListener);
         if (swiper.touchEvents.cancel) {
           swiper.$wrapperEl.off(swiper.touchEvents.cancel, slideSelector, zoom.onGestureEnd, passiveListener);
->>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
         }
       }
 
@@ -7051,12 +6972,9 @@
             }
           }
           swiper.emit('lazyImageReady', $slideEl[0], $imageEl[0]);
-<<<<<<< HEAD
-=======
           if (swiper.params.autoHeight) {
             swiper.updateAutoHeight();
           }
->>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
         });
 
         swiper.emit('lazyImageLoad', $slideEl[0], $imageEl[0]);
@@ -8412,10 +8330,6 @@
         // var rotateZ = 0
         var translateZ = -translate * Math.abs(offsetMultiplier);
 
-<<<<<<< HEAD
-        var translateY = isHorizontal ? 0 : params.stretch * (offsetMultiplier);
-        var translateX = isHorizontal ? params.stretch * (offsetMultiplier) : 0;
-=======
         var stretch = params.stretch;
         // Allow percentage to make a relative stretch for responsive sliders
         if (typeof stretch === 'string' && stretch.indexOf('%') !== -1) {
@@ -8423,7 +8337,6 @@
         }
         var translateY = isHorizontal ? 0 : stretch * (offsetMultiplier);
         var translateX = isHorizontal ? stretch * (offsetMultiplier) : 0;
->>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
 
         // Fix for ultra small values
         if (Math.abs(translateX) < 0.001) { translateX = 0; }

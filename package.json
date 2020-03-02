@@ -1,10 +1,6 @@
 {
   "name": "swiper-src",
-<<<<<<< HEAD
-  "version": "5.3.0",
-=======
   "version": "5.3.6",
->>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
   "description": "Most modern mobile touch slider and framework with hardware accelerated transitions",
   "scripts": {
     "build:dev": "cross-env NODE_ENV=development gulp build",
@@ -60,11 +56,7 @@
   "devDependencies": {
     "autoprefixer": "^9.6.1",
     "clean-css": "^4.2.1",
-<<<<<<< HEAD
-    "cross-env": "^6.0.0",
-=======
     "cross-env": "^7.0.0",
->>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
     "eslint": "^6.4.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-import": "^2.18.2",

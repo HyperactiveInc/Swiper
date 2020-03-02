@@ -1,9 +1,5 @@
 /**
-<<<<<<< HEAD
- * Swiper 5.3.0
-=======
  * Swiper 5.3.6
->>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
  * Most modern mobile touch slider and framework with hardware accelerated transitions
  * http://swiperjs.com
  *
@@ -15,11 +11,7 @@
  * Released on: January 11, 2020
 =======
  * Released on: February 29, 2020
->>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
- */
-
 /**
- * SSR Window 1.0.1
  * Better handling for window object in SSR environment
  * https://github.com/nolimits4web/ssr-window
  *

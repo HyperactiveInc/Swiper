@@ -26,10 +26,6 @@ const Coverflow = {
       // var rotateZ = 0
       let translateZ = -translate * Math.abs(offsetMultiplier);
 
-<<<<<<< HEAD
-      let translateY = isHorizontal ? 0 : params.stretch * (offsetMultiplier);
-      let translateX = isHorizontal ? params.stretch * (offsetMultiplier) : 0;
-=======
       let stretch = params.stretch;
       // Allow percentage to make a relative stretch for responsive sliders
       if (typeof stretch === 'string' && stretch.indexOf('%') !== -1) {
@@ -37,7 +33,6 @@ const Coverflow = {
       }
       let translateY = isHorizontal ? 0 : stretch * (offsetMultiplier);
       let translateX = isHorizontal ? stretch * (offsetMultiplier) : 0;
->>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
 
       // Fix for ultra small values
       if (Math.abs(translateX) < 0.001) translateX = 0;
