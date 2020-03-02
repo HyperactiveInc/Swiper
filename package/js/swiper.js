@@ -7,14 +7,14 @@
  *
  * Released under the MIT License
  *
- * Released on: February 29, 2020
+ * Released on: March 2, 2020
  */
 
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
   (global = global || self, global.Swiper = factory());
-}(this, function () { 'use strict';
+}(this, (function () { 'use strict';
 
   /**
    * SSR Window 1.0.1
@@ -8658,5 +8658,5 @@
 
   return Swiper;
 
-}));
+})));
 //# sourceMappingURL=swiper.js.map

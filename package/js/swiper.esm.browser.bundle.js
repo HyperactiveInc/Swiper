@@ -7,11 +7,11 @@
  *
  * Released under the MIT License
  *
-<<<<<<< HEAD
- * Released on: January 11, 2020
-=======
- * Released on: February 29, 2020
+ * Released on: March 2, 2020
+ */
+
 /**
+ * SSR Window 1.0.1
  * Better handling for window object in SSR environment
  * https://github.com/nolimits4web/ssr-window
  *
@@ -1494,12 +1494,6 @@ function updateAutoHeight (speed) {
   }
   // Find slides currently in view
   if (swiper.params.slidesPerView !== 'auto' && swiper.params.slidesPerView > 1) {
-<<<<<<< HEAD
-    for (i = 0; i < Math.ceil(swiper.params.slidesPerView); i += 1) {
-      const index = swiper.activeIndex + i;
-      if (index > swiper.slides.length) break;
-      activeSlides.push(swiper.slides.eq(index)[0]);
-=======
     if (swiper.params.centeredSlides) activeSlides.push(...swiper.visibleSlides);
     else {
       for (i = 0; i < Math.ceil(swiper.params.slidesPerView); i += 1) {
@@ -1507,7 +1501,6 @@ function updateAutoHeight (speed) {
         if (index > swiper.slides.length) break;
         activeSlides.push(swiper.slides.eq(index)[0]);
       }
->>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
     }
   } else {
     activeSlides.push(swiper.slides.eq(swiper.activeIndex)[0]);
@@ -1556,11 +1549,7 @@ function updateSlidesProgress (translate = (this && this.translate) || 0) {
     const slideProgress = (
       (offsetCenter + (params.centeredSlides ? swiper.minTranslate() : 0)) - slide.swiperSlideOffset
     ) / (slide.swiperSlideSize + params.spaceBetween);
-<<<<<<< HEAD
-    if (params.watchSlidesVisibility) {
-=======
     if (params.watchSlidesVisibility || (params.centeredSlides && params.autoHeight)) {
->>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
       const slideBefore = -(offsetCenter - slide.swiperSlideOffset);
       const slideAfter = slideBefore + swiper.slidesSizesGrid[i];
       const isVisible = (slideBefore >= 0 && slideBefore < swiper.size - 1)
@@ -1604,11 +1593,7 @@ function updateProgress (translate) {
     isEnd,
   });
 
-<<<<<<< HEAD
-  if (params.watchSlidesProgress || params.watchSlidesVisibility) swiper.updateSlidesProgress(translate);
-=======
   if (params.watchSlidesProgress || params.watchSlidesVisibility || (params.centeredSlides && params.autoHeight)) swiper.updateSlidesProgress(translate);
->>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
 
   if (isBeginning && !wasBeginning) {
     swiper.emit('reachBeginning toEdge');
@@ -2036,11 +2021,7 @@ function slideTo (index = 0, speed = this.params.speed, runCallbacks = true, int
 
   const skip = Math.min(swiper.params.slidesPerGroupSkip, slideIndex);
   let snapIndex = skip + Math.floor((slideIndex - skip) / swiper.params.slidesPerGroup);
-<<<<<<< HEAD
-  if (snapIndex >= slidesGrid.length) snapIndex = slidesGrid.length - 1;
-=======
   if (snapIndex >= snapGrid.length) snapIndex = snapGrid.length - 1;
->>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
 
   if ((activeIndex || params.initialSlide || 0) === (previousIndex || 0) && runCallbacks) {
     swiper.emit('beforeSlideChangeStart');
@@ -3518,11 +3499,7 @@ function getBreakpoint (breakpoints) {
   let breakpoint = false;
 
   const points = Object.keys(breakpoints).map((point) => {
-<<<<<<< HEAD
-    if (typeof point === 'string' && point.startsWith('@')) {
-=======
     if (typeof point === 'string' && point.indexOf('@') === 0) {
->>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
       const minRatio = parseFloat(point.substr(1));
       const value = win.innerHeight * minRatio;
       return { value, point };
@@ -3997,11 +3974,7 @@ class Swiper extends SwiperClass {
         startTranslate: undefined,
         allowThresholdMove: undefined,
         // Form elements to match
-<<<<<<< HEAD
-        formElements: 'input, select, option, textarea, button, video',
-=======
         formElements: 'input, select, option, textarea, button, video, label',
->>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
         // Last click time
         lastClickTime: Utils.now(),
         clickTimeout: undefined,
@@ -6232,15 +6205,9 @@ const Zoom = {
       gesture.scaleStart = Zoom.getDistanceBetweenTouches(e);
     }
     if (!gesture.$slideEl || !gesture.$slideEl.length) {
-<<<<<<< HEAD
-      gesture.$slideEl = $(e.target).closest('.swiper-slide');
-      if (gesture.$slideEl.length === 0) gesture.$slideEl = swiper.slides.eq(swiper.activeIndex);
-      gesture.$imageEl = gesture.$slideEl.find('img, svg, canvas');
-=======
       gesture.$slideEl = $(e.target).closest(`.${swiper.params.slideClass}`);
       if (gesture.$slideEl.length === 0) gesture.$slideEl = swiper.slides.eq(swiper.activeIndex);
       gesture.$imageEl = gesture.$slideEl.find('img, svg, canvas, picture, .swiper-zoom-target');
->>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
       gesture.$imageWrapEl = gesture.$imageEl.parent(`.${params.containerClass}`);
       gesture.maxRatio = gesture.$imageWrapEl.attr('data-swiper-zoom') || params.maxRatio;
       if (gesture.$imageWrapEl.length === 0) {
@@ -6477,13 +6444,8 @@ const Zoom = {
     const { gesture, image } = zoom;
 
     if (!gesture.$slideEl) {
-<<<<<<< HEAD
-      gesture.$slideEl = swiper.clickedSlide ? $(swiper.clickedSlide) : swiper.slides.eq(swiper.activeIndex);
-      gesture.$imageEl = gesture.$slideEl.find('img, svg, canvas');
-=======
       gesture.$slideEl = swiper.slides.eq(swiper.activeIndex);
       gesture.$imageEl = gesture.$slideEl.find('img, svg, canvas, picture, .swiper-zoom-target');
->>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
       gesture.$imageWrapEl = gesture.$imageEl.parent(`.${params.containerClass}`);
     }
     if (!gesture.$imageEl || gesture.$imageEl.length === 0) return;
@@ -6568,13 +6530,8 @@ const Zoom = {
     const { gesture } = zoom;
 
     if (!gesture.$slideEl) {
-<<<<<<< HEAD
-      gesture.$slideEl = swiper.clickedSlide ? $(swiper.clickedSlide) : swiper.slides.eq(swiper.activeIndex);
-      gesture.$imageEl = gesture.$slideEl.find('img, svg, canvas');
-=======
       gesture.$slideEl = swiper.slides.eq(swiper.activeIndex);
       gesture.$imageEl = gesture.$slideEl.find('img, svg, canvas, picture, .swiper-zoom-target');
->>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
       gesture.$imageWrapEl = gesture.$imageEl.parent(`.${params.containerClass}`);
     }
     if (!gesture.$imageEl || gesture.$imageEl.length === 0) return;
@@ -6596,19 +6553,6 @@ const Zoom = {
     const passiveListener = swiper.touchEvents.start === 'touchstart' && Support.passiveListener && swiper.params.passiveListeners ? { passive: true, capture: false } : false;
     const activeListenerWithCapture = Support.passiveListener ? { passive: false, capture: true } : true;
 
-<<<<<<< HEAD
-    // Scale image
-    if (Support.gestures) {
-      swiper.$wrapperEl.on('gesturestart', '.swiper-slide', zoom.onGestureStart, passiveListener);
-      swiper.$wrapperEl.on('gesturechange', '.swiper-slide', zoom.onGestureChange, passiveListener);
-      swiper.$wrapperEl.on('gestureend', '.swiper-slide', zoom.onGestureEnd, passiveListener);
-    } else if (swiper.touchEvents.start === 'touchstart') {
-      swiper.$wrapperEl.on(swiper.touchEvents.start, '.swiper-slide', zoom.onGestureStart, passiveListener);
-      swiper.$wrapperEl.on(swiper.touchEvents.move, '.swiper-slide', zoom.onGestureChange, activeListenerWithCapture);
-      swiper.$wrapperEl.on(swiper.touchEvents.end, '.swiper-slide', zoom.onGestureEnd, passiveListener);
-      if (swiper.touchEvents.cancel) {
-        swiper.$wrapperEl.on(swiper.touchEvents.cancel, '.swiper-slide', zoom.onGestureEnd, passiveListener);
-=======
     const slideSelector = `.${swiper.params.slideClass}`;
 
     // Scale image
@@ -6622,7 +6566,6 @@ const Zoom = {
       swiper.$wrapperEl.on(swiper.touchEvents.end, slideSelector, zoom.onGestureEnd, passiveListener);
       if (swiper.touchEvents.cancel) {
         swiper.$wrapperEl.on(swiper.touchEvents.cancel, slideSelector, zoom.onGestureEnd, passiveListener);
->>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
       }
     }
 
@@ -6639,19 +6582,6 @@ const Zoom = {
     const passiveListener = swiper.touchEvents.start === 'touchstart' && Support.passiveListener && swiper.params.passiveListeners ? { passive: true, capture: false } : false;
     const activeListenerWithCapture = Support.passiveListener ? { passive: false, capture: true } : true;
 
-<<<<<<< HEAD
-    // Scale image
-    if (Support.gestures) {
-      swiper.$wrapperEl.off('gesturestart', '.swiper-slide', zoom.onGestureStart, passiveListener);
-      swiper.$wrapperEl.off('gesturechange', '.swiper-slide', zoom.onGestureChange, passiveListener);
-      swiper.$wrapperEl.off('gestureend', '.swiper-slide', zoom.onGestureEnd, passiveListener);
-    } else if (swiper.touchEvents.start === 'touchstart') {
-      swiper.$wrapperEl.off(swiper.touchEvents.start, '.swiper-slide', zoom.onGestureStart, passiveListener);
-      swiper.$wrapperEl.off(swiper.touchEvents.move, '.swiper-slide', zoom.onGestureChange, activeListenerWithCapture);
-      swiper.$wrapperEl.off(swiper.touchEvents.end, '.swiper-slide', zoom.onGestureEnd, passiveListener);
-      if (swiper.touchEvents.cancel) {
-        swiper.$wrapperEl.off(swiper.touchEvents.cancel, '.swiper-slide', zoom.onGestureEnd, passiveListener);
-=======
     const slideSelector = `.${swiper.params.slideClass}`;
 
     // Scale image
@@ -6665,7 +6595,6 @@ const Zoom = {
       swiper.$wrapperEl.off(swiper.touchEvents.end, slideSelector, zoom.onGestureEnd, passiveListener);
       if (swiper.touchEvents.cancel) {
         swiper.$wrapperEl.off(swiper.touchEvents.cancel, slideSelector, zoom.onGestureEnd, passiveListener);
->>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
       }
     }
 
@@ -6850,12 +6779,9 @@ const Lazy = {
           }
         }
         swiper.emit('lazyImageReady', $slideEl[0], $imageEl[0]);
-<<<<<<< HEAD
-=======
         if (swiper.params.autoHeight) {
           swiper.updateAutoHeight();
         }
->>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
       });
 
       swiper.emit('lazyImageLoad', $slideEl[0], $imageEl[0]);
@@ -8197,10 +8123,6 @@ const Coverflow = {
       // var rotateZ = 0
       let translateZ = -translate * Math.abs(offsetMultiplier);
 
-<<<<<<< HEAD
-      let translateY = isHorizontal ? 0 : params.stretch * (offsetMultiplier);
-      let translateX = isHorizontal ? params.stretch * (offsetMultiplier) : 0;
-=======
       let stretch = params.stretch;
       // Allow percentage to make a relative stretch for responsive sliders
       if (typeof stretch === 'string' && stretch.indexOf('%') !== -1) {
@@ -8208,7 +8130,6 @@ const Coverflow = {
       }
       let translateY = isHorizontal ? 0 : stretch * (offsetMultiplier);
       let translateX = isHorizontal ? stretch * (offsetMultiplier) : 0;
->>>>>>> 71efce4731e9ee6ac9544ef3b7bc25c1e52388fe
 
       // Fix for ultra small values
       if (Math.abs(translateX) < 0.001) translateX = 0;
